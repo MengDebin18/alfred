@@ -17,3 +17,17 @@ Currently *alfred* contains several modules:
 
 - scrap:
   1. image: scrap images with a query words and save into local;
+
+# Install
+To install *alfred*, simply:
+
+```
+sudo python3 setup.py install
+```
+More powerful things is, you can import alfred in your project!
+
+```
+from alfred import vision
+from alfred import text
+```
+So that you can access all alfred abilities in your own project!
