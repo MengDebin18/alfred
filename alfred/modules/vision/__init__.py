@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-# file: setup.py
+# file: __init__.py
 # author: JinTian
-# time: 04/02/2018 12:16 PM
+# time: 05/02/2018 9:35 PM
 # Copyright 2018 JinTian. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,21 +16,3 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ------------------------------------------------------------------------
-"""
-install alfred into local bin dir.
-"""
-from setuptools import setup, find_packages
-
-setup(name='alfred',
-      version='0.1.0',
-      packages=find_packages(),
-      entry_points={
-          'console_scripts': [
-              'alfred = alfred.alfred:main'
-          ]
-      },
-
-      author="Lucas Jin",
-      author_email="jinfagang10@163.com",
-      description="Deep Learning Helper",
-)

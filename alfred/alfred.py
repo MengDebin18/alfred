@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# file: __main__.py
+# file: alfred.py
 # author: JinTian
 # time: 04/02/2018 11:59 AM
 # Copyright 2018 JinTian. All Rights Reserved.
@@ -25,6 +25,7 @@ import sys
 import argparse
 from colorama import Fore, Back, Style
 
+from .modules.vision.video_extractor import VideoExtractor
 
 __VERSION__ = '1.0.1'
 __AUTHOR__ = 'Lucas Jin'
@@ -101,8 +102,10 @@ def main(args=None):
         print('=> Action: ', Fore.WHITE, Style.BRIGHT, action)
         if module == 'vision':
             if action == 'extract':
-                v_f = args_dict['vision']
+                v_f = args_dict['video']
                 print(Fore.BLUE + Style.BRIGHT + 'Extracting from {}'.format(v_f))
+                video_extractor = VideoExtractor()
+                video_extractor.extract(v_f)
             elif action == '2video':
                 d = args_dict['dir']
                 print(Fore.BLUE + Style.BRIGHT + 'Combine video from {}'.format(d))
