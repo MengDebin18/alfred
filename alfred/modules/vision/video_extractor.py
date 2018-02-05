@@ -24,7 +24,7 @@ from colorama import Fore, Back, Style
 
 class VideoExtractor(object):
 
-    def __init__(self, jump_frames=0, save_format='frame_%06d.jpg'):
+    def __init__(self, jump_frames=6, save_format='frame_%06d.jpg'):
         """
         we set frames to jump, etc, using jump_frames=6
         will save one frame per 6 frames jumped
@@ -33,22 +33,27 @@ class VideoExtractor(object):
         users can decide what's the format is: frame_0000004.jpg
         """
         self.current_frame = 0
-        self.jump_frames = jump_frames
+        self.current_save_frame = 0
+        if jump_frames:
+            self.jump_frames = jump_frames
+        else:
+            self.jump_frames = 6
         self.save_format = save_format
 
     def extract(self, video_f):
         if os.path.exists(video_f) and os.path.isfile(video_f):
             cap = cv2.VideoCapture(video_f)
-            r, _ = cap.Open()
 
             save_dir = os.path.join(os.path.dirname(video_f), os.path.basename(video_f).split('.')[0])
             if not os.path.exists(save_dir):
                 os.makedirs(save_dir)
-            while r:
-                r, image = cap.read()
-                print('Read frame: ', self.current_frame)
-                cv2.imwrite(os.path.join(save_dir, self.save_format % self.current_frame), image)
+            while cap.isOpened():
+                _, image = cap.read()
                 self.current_frame += 1
+                if self.current_frame % self.jump_frames == 0:
+                    print('Read frame: {} jump frames: {}'.format(self.current_frame, self.jump_frames))
+                    cv2.imwrite(os.path.join(save_dir, self.save_format % self.current_save_frame), image)
+                    self.current_save_frame += 1
             print(Fore.GREEN + Style.BRIGHT)
             print('Success!')
         else:

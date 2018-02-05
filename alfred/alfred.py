@@ -26,6 +26,7 @@ import argparse
 from colorama import Fore, Back, Style
 
 from .modules.vision.video_extractor import VideoExtractor
+from .modules.scrap.image_scraper import ImageScraper
 
 __VERSION__ = '1.0.1'
 __AUTHOR__ = 'Lucas Jin'
@@ -50,6 +51,7 @@ def arg_parse():
     vision_extract_parser = vision_sub_parser.add_parser('extract', help='extract image from video')
     vision_extract_parser.set_defaults(which='vision-extract')
     vision_extract_parser.add_argument('--video', '-v', help='video to extract')
+    vision_extract_parser.add_argument('--jumps', '-j', help='jump frames for wide extract')
 
     vision_2video_parser = vision_sub_parser.add_parser('2video', help='combine into a video.')
     vision_2video_parser.set_defaults(which='vision-2video')
@@ -103,8 +105,9 @@ def main(args=None):
         if module == 'vision':
             if action == 'extract':
                 v_f = args_dict['video']
+                j = args_dict['jumps']
                 print(Fore.BLUE + Style.BRIGHT + 'Extracting from {}'.format(v_f))
-                video_extractor = VideoExtractor()
+                video_extractor = VideoExtractor(jump_frames=j)
                 video_extractor.extract(v_f)
             elif action == '2video':
                 d = args_dict['dir']
@@ -120,9 +123,12 @@ def main(args=None):
                 f = args.v
                 print(Fore.BLUE + Style.BRIGHT + 'Translate from {}'.format(f))
         elif module == 'scrap':
-            if action == 'images':
-                q = args.v
-                print(Fore.BLUE + Style.BRIGHT + 'Scrap images of {}'.format(q))
+            if action == 'image':
+                q = args_dict['query']
+                q_list = q.split(',')
+                q_list = [i.replace(' ', '') for i in q_list]
+                image_scraper = ImageScraper()
+                image_scraper.scrap(q_list)
 
     except Exception as e:
         print(Fore.RED, 'parse args error, type -h to see help. msg: {}'.format(e))
