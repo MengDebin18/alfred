@@ -1,3 +1,6 @@
 .idea/
 build/
 data/
+alfred.egg-info/
+dist/
+build/
