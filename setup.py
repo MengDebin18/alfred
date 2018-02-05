@@ -19,3 +19,15 @@
 """
 install alfred into local bin dir.
 """
+from setuptools import setup
+
+
+setup(name='alfred',
+      version='0.1.0',
+      packages=['alfred'],
+      entry_points={
+          'console_scripts': [
+              'alfred = alfred.__main__:main'
+          ]
+      },
+)

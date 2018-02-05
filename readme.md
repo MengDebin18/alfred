@@ -2,6 +2,12 @@
 As this repo name shows, this is a collection of useful scripts combined into a single application, and written in favorite **python**. this will install into bin directory and standby at anytime when I want call it.
 *alfred* mainly using for **Deep Learning** purpose.
 
+![](https://i.loli.net/2018/02/05/5a77dd1e89e69.png)
+
+![](https://i.loli.net/2018/02/05/5a77dd331bcb3.png)
+
+
+
 Currently *alfred* contains several modules:
 
 - vision:
