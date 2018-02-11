@@ -74,7 +74,7 @@ def arg_parse():
     text_translate_parser.add_argument('--file', '-f', help='translate a words to target language')
 
     # =============== scrap part ================
-    scrap_parser = main_sub_parser.add_parser('scrap', help='text related commands.')
+    scrap_parser = main_sub_parser.add_parser('scrap', help='scraper related commands.')
     scrap_sub_parser = scrap_parser.add_subparsers()
 
     scrap_image_parser = scrap_sub_parser.add_parser('image', help='scrap images.')
