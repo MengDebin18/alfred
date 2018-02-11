@@ -24,6 +24,15 @@ Currently *alfred* contains several modules:
 - scrap:
   1. image: scrap images with a query words and save into local;
 
+
+# New
+*alfred* now available on pip! to install directly:
+
+```angular2html
+sudo pip3 install alfred-py
+```
+**Note**: pls add sudo, because alfred will add bin file into system path.
+
 # Install
 To install *alfred*, simply:
 

@@ -21,8 +21,13 @@ install alfred into local bin dir.
 """
 from setuptools import setup, find_packages
 
-setup(name='alfred',
-      version='0.1.0',
+setup(name='alfred-collection',
+      version='0.1.1',
+      keywords=['deep learning', 'script helper', 'tools'],
+      description='alfred is a deep learning scripts collection, built with many standby functions for process image '
+                  'or '
+                  'text',
+      license='GPL',
       packages=find_packages(),
       entry_points={
           'console_scripts': [
@@ -32,5 +37,7 @@ setup(name='alfred',
 
       author="Lucas Jin",
       author_email="jinfagang10@163.com",
-      description="Deep Learning Helper",
-)
+      url='https://github.com/jinfagang/alfred',
+      platforms='any',
+      install_requires=['colorama', 'opencv-python', 'requests']
+      )
