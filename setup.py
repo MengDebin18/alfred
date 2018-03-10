@@ -21,8 +21,8 @@ install alfred into local bin dir.
 """
 from setuptools import setup, find_packages
 
-setup(name='alfred-collection',
-      version='0.1.1',
+setup(name='alfred-py',
+      version='0.1.2',
       keywords=['deep learning', 'script helper', 'tools'],
       description='alfred is a deep learning scripts collection, built with many standby functions for process image '
                   'or '

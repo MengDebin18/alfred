@@ -25,6 +25,12 @@ Currently *alfred* contains several modules:
   1. image: scrap images with a query words and save into local;
 
 
+
+
+# Plan
+
+**alfred** need some plan to do. I need alfred enable to do some utils functions which can be imported into program.
+
 # New
 *alfred* now available on pip! to install directly:
 
