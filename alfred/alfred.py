@@ -27,8 +27,9 @@ from colorama import Fore, Back, Style
 
 from .modules.vision.video_extractor import VideoExtractor
 from .modules.scrap.image_scraper import ImageScraper
+from .modules.vision.to_video import VideoCombiner
 
-__VERSION__ = '1.0.1'
+__VERSION__ = '1.0.2'
 __AUTHOR__ = 'Lucas Jin'
 __DATE__ = '2018.02.05'
 __LOC__ = 'CSU, China, Changsha'
@@ -100,8 +101,8 @@ def main(args=None):
         module = args_dict['which'].split('-')[0]
         action = args_dict['which'].split('-')[1]
         print(Fore.GREEN + Style.BRIGHT)
-        print('=> Module: ', Fore.WHITE, Style.BRIGHT, module, Fore.GREEN + Style.BRIGHT)
-        print('=> Action: ', Fore.WHITE, Style.BRIGHT, action)
+        print('=> Module: ' + Fore.WHITE + Style.BRIGHT + module + Fore.GREEN + Style.BRIGHT)
+        print('=> Action: ' + Fore.WHITE + Style.BRIGHT + action)
         if module == 'vision':
             if action == 'extract':
                 v_f = args_dict['video']
@@ -111,7 +112,11 @@ def main(args=None):
                 video_extractor.extract(v_f)
             elif action == '2video':
                 d = args_dict['dir']
+                combiner = VideoCombiner(img_dir=d)
                 print(Fore.BLUE + Style.BRIGHT + 'Combine video from {}'.format(d))
+                print(Fore.BLUE + Style.BRIGHT + 'What the hell.. {}'.format(d))
+                combiner.combine()
+
             elif action == 'clean':
                 d = args_dict['dir']
                 print(Fore.BLUE + Style.BRIGHT + 'Cleaning from {}'.format(d))

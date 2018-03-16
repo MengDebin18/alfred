@@ -24,14 +24,17 @@ Currently *alfred* contains several modules:
 - scrap:
   1. image: scrap images with a query words and save into local;
 
-
-
-
-# Plan
-
-**alfred** need some plan to do. I need alfred enable to do some utils functions which can be imported into program.
-
 # New
+
+#### 2018-03-16
+Slightly update **alfred**, now we can using this tool to combine a video sequence back original video!
+Simply do:
+```angular2html
+alfred vision 2video -d ./images
+```
+
+#### Previous
+
 *alfred* now available on pip! to install directly:
 
 ```angular2html
